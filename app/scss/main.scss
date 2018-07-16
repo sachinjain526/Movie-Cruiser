@@ -1,0 +1,51 @@
+@import "~bootstrap/scss/bootstrap";
+$bg-red:rgba(60.00%, 3.53%, 3.53%, 0.88);
+body{
+    overflow-x: hidden;
+    background: #ececec;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#movieDetail{
+    background-image: radial-gradient(circle at 20% 50%, rgba(76.08%, 17.25%, 17.65%, 0.98) 0%,$bg-red 100%);
+}
+.movieDetailContainer {
+    .release_date {
+        opacity: 0.6;
+        font-size: 1.7em;
+    }
+    ul{
+        list-style: none;
+        .nav-item{
+            border: 2px solid $white;
+            border-radius: 50%;
+            font-size: 14px;
+            padding: 2px 0;
+        }
+        .nav-item:hover{
+            background: $white;
+            a{
+             color:$bg-red;
+            }
+        }
+        .nav-item:last-child,.nav-item:last-child:hover{
+            border:0;
+            background: none;
+        }
+    }
+    
+    a{
+        color: $white;
+    }
+}
+.movieContainer:hover{
+  cursor: pointer;
+}
+.section-heading{
+    font-size: 25px;
+    border-bottom: 2px double lightcoral;
+}
+.section-content{
+    width: 90%;
+    height: 350px;
+    overflow-y: auto;
+}

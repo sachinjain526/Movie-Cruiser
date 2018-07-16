@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Webpack Configuration</title>
+    <link rel="shortcut icon" type="image/png" href="./app/assets/favicon.ico" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Movie Cruiser</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">My Collection</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tv Shows</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">People</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Movie.." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <main>
+        <div class="main-pages" id="homePage">
+            <section id="topMovies" class="contianer-fluid text-center">
+                <h1 class=" w-25 mx-auto my-2 section-heading">Top Movies</h1>
+                <div class="m-auto section-content">
+                    <div id="topMoviesContainer" class="row m-1">
+
+                    </div>
+                    <button id="loadMovie" type="button" class="w-25 p-1 btn btn-primary" pageNumber="1">Load More...</button>
+                </div>
+            </section>
+            <section id="userCollection" class="contianer-fluid">
+                <h1 class="text-center w-25 mx-auto my-2 section-heading">User Collection</h1>
+                <div class="row content row m-auto section-content" id="userCollectionContainer">
+                    <div> There No User Collection</div>
+                </div>
+            </section>
+        </div>
+        <div class="main-pages d-none" id="detailsPage">
+            <section id="movieDetail" class="container-fluid text-white">
+
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
