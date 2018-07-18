@@ -3,12 +3,13 @@
   "total_results": 369507,
   "total_pages": 18476,
   "results": [
-    { "id": 351286,
+    {
+      "id": 351286,
       "vote_average": 6.6,
       "title": "Jurassic World: Fallen Kingdom",
       "poster_path": "\/c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg",
       "original_language": "en",
-      "original_title": "Jurassic World: Fallen Kingdom",      
+      "original_title": "Jurassic World: Fallen Kingdom",
       "overview": "Several years after the demise of Jurassic World, a volcanic eruption threatens the remaining dinosaurs on the island of Isla Nublar. Claire Dearing, the former park manager and founder of the Dinosaur Protection Group, recruits Owen Grady to help prevent the extinction of the dinosaurs once again.",
       "release_date": "2018-06-06"
     },
@@ -62,12 +63,12 @@
       "vote_average": 7.2,
       "title": "A Quiet Place",
       "poster_path": "\/nAU74GmpUk7t5iklEp3bufwDq4n.jpg",
-      "original_language": "en",      
+      "original_language": "en",
       "overview": "A family is forced to live in silence while hiding from creatures that hunt by sound.",
       "release_date": "2018-04-03"
     },
     {
-      "id": 337167, 
+      "id": 337167,
       "vote_average": 6,
       "title": "Fifty Shades Freed",
       "poster_path": "\/jjPJ4s3DWZZvI4vw8Xfi4Vqa1Q8.jpg",
@@ -91,7 +92,7 @@
       "popularity": 91.092,
       "poster_path": "\/3gIO6mCd4Q4PF1tuwcyI3sjFrtI.jpg",
       "original_language": "en",
-	  "overview": "Primatologist Davis Okoye shares an unshakable bond with George, the extraordinarily intelligent, silverback gorilla who has been in his care since birth.  But a rogue genetic experiment gone awry mutates this gentle ape into a raging creature of enormous size.  To make matters worse, it’s soon discovered there are other similarly altered animals.  As these newly created alpha predators tear across North America, destroying everything in their path, Okoye teams with a discredited genetic engineer to secure an antidote, fighting his way through an ever-changing battlefield, not only to halt a global catastrophe but to save the fearsome creature that was once his friend.",
+      "overview": "Primatologist Davis Okoye shares an unshakable bond with George, the extraordinarily intelligent, silverback gorilla who has been in his care since birth.  But a rogue genetic experiment gone awry mutates this gentle ape into a raging creature of enormous size.  To make matters worse, it’s soon discovered there are other similarly altered animals.  As these newly created alpha predators tear across North America, destroying everything in their path, Okoye teams with a discredited genetic engineer to secure an antidote, fighting his way through an ever-changing battlefield, not only to halt a global catastrophe but to save the fearsome creature that was once his friend.",
       "release_date": "2018-04-12"
     },
     {
@@ -104,7 +105,7 @@
       "release_date": "2018-03-05"
     },
     {
-      "id": 447200, 
+      "id": 447200,
       "vote_average": 6.3,
       "title": "Skyscraper",
       "poster_path": "\/5LYSsOPzuP13201qSzMjNxi8FxN.jpg",
@@ -122,7 +123,7 @@
       "release_date": "2015-07-14"
     },
     {
-     "id": 284054,
+      "id": 284054,
       "vote_average": 7.3,
       "title": "Black Panther",
       "poster_path": "\/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
@@ -140,7 +141,7 @@
       "release_date": "2015-06-06"
     },
     {
-     "id": 353081,
+      "id": 353081,
       "vote_average": 0,
       "title": "Mission: Impossible - Fallout",
       "poster_path": "\/80PWnSTkygi3QWWmJ3hrAwqvLnO.jpg",
@@ -157,7 +158,7 @@
       "release_date": "2018-07-12"
     },
     {
-     "id": 238636,
+      "id": 238636,
       "vote_average": 6.6,
       "title": "The Purge: Anarchy",
       "poster_path": "\/l1DRl40x2OWUoPP42v8fjKdS1Z3.jpg",

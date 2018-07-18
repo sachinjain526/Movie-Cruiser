@@ -1,6 +1,6 @@
 let headerJson = { method: "get", "Access-Control-Allow-Origin": "*", mode: "cors", "Content-Type": "application/json" };
-var jQuery = require('jQuery');
-import { movieDetailPath, apiKey } from './keysAndApiPath';
+var jQuery = require('jquery');
+import { movieDetailPath, apiKey, baseUrl } from './keysAndApiPath';
 function getMovieRecords(pagN0, callback) {
     fetchDatFromApi(`https://api.themoviedb.org/3/discover/movie${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pagN0}`, callback);
 }
@@ -35,4 +35,15 @@ function saveDataTOJsonSever(url, passData, callback) {
         console.log("Request failed: " + textStatus);
     });
 }
-export { getMovieRecords, getFullMovieDetails, saveDataTOJsonSever };
+function getUserCollection(callback) {
+    jQuery.ajax({
+        url: baseUrl,
+        method: "get",
+        dataType: "json"
+    }).done(function (msg) {
+        callback(msg);
+    }).fail(function (jqXHR, textStatus) {
+        console.log("Request failed: " + textStatus);
+    });
+}
+export { getMovieRecords, getFullMovieDetails, saveDataTOJsonSever, getUserCollection };

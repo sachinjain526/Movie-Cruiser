@@ -8,6 +8,9 @@ body{
 #movieDetail{
     background-image: radial-gradient(circle at 20% 50%, rgba(76.08%, 17.25%, 17.65%, 0.98) 0%,$bg-red 100%);
 }
+.modal-dialog{
+    max-width: 850px;
+}
 .movieDetailContainer {
     .release_date {
         opacity: 0.6;

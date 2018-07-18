@@ -1,4 +1,4 @@
-var jQuery = require('jQuery');
+var jQuery = require('jquery');
 import { getFullMovieDetails, saveDataTOJsonSever } from './apiDataServices'
 import { createMovieDetail } from './createListAndCollection'
 import { baseUrl } from './keysAndApiPath'
@@ -31,7 +31,6 @@ function updateCollectionList(msg) {
     console.log(msg);
 }
 function showMovieDetails(data) {
-    jQuery("#detailsPage").removeClass("d-none");
     createMovieDetail("movieDetail", data);
 }
 export { eventListener };

@@ -1,9 +1,9 @@
-var jQuery = require('jQuery');
+var jQuery = require('jquery');
 import 'popper.js';
 import 'bootstrap';
 require("../scss/main.scss");
 // local file import
-import { getMovieRecords } from './apiDataServices';
+import { getMovieRecords, getUserCollection } from './apiDataServices';
 import { createTopMoviesList } from './createListAndCollection';
 import { eventListener } from './eventListener';
 import { baseUrl } from './keysAndApiPath';
@@ -30,10 +30,14 @@ function localEventListener() {
     jQuery(this).attr("pagenumber", pagenumber);
   });
 }
+function constructMovieCollection(data) {
+  console.log(data);
+}
 jQuery(document).ready(function () {
   console.log('app initialized');
   getMovieRecords(1, showTopMovies);
   localEventListener();
+  getUserCollection(constructMovieCollection);
 
 })
 
