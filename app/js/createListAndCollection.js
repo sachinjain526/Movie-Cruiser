@@ -3,18 +3,20 @@ import { posterPath } from './keysAndApiPath';
 
 function createTopMoviesList(containerId, movieData) {
     let showTopMoviesHtml = "";
-    movieData.results.map(movieRecod => {
-        showTopMoviesHtml += `<div class="col-2 movieContainer" id= ${movieRecod.id}>
-      <img src="${posterPath + movieRecod.poster_path}" alt="${movieRecod.original_title}" class="img-thumbnail rounded">
-      <div class="buttom-panel text-center mt-1">
-      <button type="button" class="collectionButton btn btn-success" movieId="${movieRecod.id}">Add To Collection</button>
-       </div>
-      <div class="p-1 m-1 bg-primary text-white">
-        <span class="small">Released : ${movieRecod.release_date.split("-")[0]}</span>
-        <span class="small">Rating: ${movieRecod.rating}</span>
-      </div>
-      </div>`
-    });
+    if (movieData.results) {
+        movieData.results.map(movieRecod => {
+            showTopMoviesHtml += `<div class="col-2 movieContainer" id= ${movieRecod.id}>
+            <img src="${posterPath + movieRecod.poster_path}" alt="${movieRecod.original_title}" class="img-thumbnail rounded">
+            <div class="buttom-panel text-center mt-1">
+            <button type="button" class="collectionButton btn btn-success" movieId="${movieRecod.id}">Add To Collection</button>
+            </div>
+            <div class="p-1 m-1 bg-primary text-white">
+                <span class="small">Released : ${movieRecod.release_date.split("-")[0]}</span>
+                <span class="small">Rating: ${movieRecod.vote_average}</span>
+            </div>
+            </div>`
+        });
+    }
     jQuery("#" + containerId).append(showTopMoviesHtml);
 }
 function createMovieDetail(containerId, movieDetailData) {
