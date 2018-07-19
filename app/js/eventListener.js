@@ -1,6 +1,6 @@
 var jQuery = require('jquery');
 import { getFullMovieDetails, getMovieRecords, getUserCollection, saveDataTOJsonSever, getSearchedMovie } from './apiDataServices'
-import { createMovieDetail, createTopMoviesList } from './createListAndCollection'
+import { createMovieDetail, createTopMoviesList, CreateUserCollection, addMovieToCollectionHtml } from './createListAndCollection'
 import { baseUrl } from './keysAndApiPath'
 // onload Event trigger
 let movieName = "";
@@ -18,11 +18,11 @@ function eventListener() {
     });
     jQuery(document).on("click", ".collectionButton", function () {
         const movieId = jQuery(this).attr("movieId");
-        getFullMovieDetails(movieId, addCollection);
+        getFullMovieDetails(movieId, addTOCollection);
 
     });
-    jQuery(document).on("click", ".movieContainer", function () {
-        const movieId = jQuery(this).attr("id");
+    jQuery(document).on("click", ".movieImage", function () {
+        const movieId = jQuery(this).parent().attr("id");
         getFullMovieDetails(movieId, showMovieDetails);
 
     });
@@ -39,7 +39,17 @@ function eventListener() {
         getSearchedMovie(movieName, pagenumber, showSearchedMovies);
         jQuery(this).attr("pagenumber", pagenumber);
     });
-
+    jQuery(document).on("click", "#closeModal", function () {
+        const modalId = jQuery(this).parents(".modal").attr("id");
+        jQuery('#' + modalId).on('hidden.bs.modal', function (e) {
+            jQuery(this).remove();
+        });
+    });
+    jQuery(document).on("click", ".addMovieCollectionItem", function () {
+        const movieId = jQuery(this).parents("#collectionList").attr("movieid");
+        const collectionName = jQuery(this).attr("collectionname");
+        getFullMovieDetails(movieId, addCollection, collectionName);
+    });
 }
 // call back and basic functions
 function showTopMovies(data) {
@@ -48,11 +58,10 @@ function showTopMovies(data) {
 function showSearchedMovies(data) {
     createTopMoviesList("searchMoviesContainer", data);
 }
-function saveDataToCollection(collectionname) {
-    saveDataTOJsonSever(baseUrl + collectionname, data, updateColloctionDom)
+function addTOCollection(data) {
+    createMovieDetail("movieDetail", false, data);
 }
-
-function addCollection(data) {
+function addCollection(data, collectionName) {
     var saveData = {
         id: data.id,
         original_language: data.original_language,
@@ -62,19 +71,15 @@ function addCollection(data) {
         title: data.title,
         vote_average: data.vote_average
     };
-    saveDataTOJsonSever(baseUrl + "Animation", saveData, updateCollectionList)
+    saveDataTOJsonSever(collectionName, saveData, updateCollectionList)
 }
-function updateColloctionDom() {
-
-}
-
-function updateCollectionList(msg) {
-    console.log(msg);
+function updateCollectionList(data, collectionName) {
+    addMovieToCollectionHtml(collectionName, data);
 }
 function constructMovieCollection(data) {
-    console.log(data);
+    CreateUserCollection("userCollectionContainer", data);
 }
 function showMovieDetails(data) {
-    createMovieDetail("movieDetail", data);
+    createMovieDetail("movieDetail", true, data);
 }
 export { eventListener, movieOnload };

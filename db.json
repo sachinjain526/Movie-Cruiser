@@ -1,41 +1,77 @@
 {
-  "collection": [
+  "Action": [],
+  "Adventure": [
     {
-      "id": "Adventure",
-      "movies": [
-        {
-          "id": 351286,
-          "original_language": "en",
-          "overview": "Several years after the demise of Jurassic World, a volcanic eruption threatens the remaining dinosaurs on the island of Isla Nublar. Claire Dearing, the former park manager and founder of the Dinosaur Protection Group, recruits Owen Grady to help prevent the extinction of the dinosaurs once again.",
-          "poster_path": "/c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg",
-          "release_date": "2018-06-06",
-          "title": "Jurassic World: Fallen Kingdom",
-          "vote_average": 6.6
-        }
-      ]
+      "id": 351286,
+      "original_language": "en",
+      "overview": "Several years after the demise of Jurassic World, a volcanic eruption threatens the remaining dinosaurs on the island of Isla Nublar. Claire Dearing, the former park manager and founder of the Dinosaur Protection Group, recruits Owen Grady to help prevent the extinction of the dinosaurs once again.",
+      "poster_path": "/c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg",
+      "release_date": "2018-06-06",
+      "title": "Jurassic World: Fallen Kingdom",
+      "vote_average": 6.6
+    }
+  ],
+  "Animation": [
+    {
+      "id": "260513",
+      "original_language": "en",
+      "overview": "Elastigirl springs into action to save the day, while Mr. Incredible faces his greatest challenge yet – taking care of the problems of his three children.",
+      "poster_path": "/x1txcDXkcM65gl7w20PwYSxAYah.jpg",
+      "release_date": "2018-06-14",
+      "title": "Incredibles 2",
+      "vote_average": "7.7"
     },
     {
-      "id": "Animation",
-      "movies": [
-        {
-          "id": "260513",
-          "original_language": "en",
-          "overview": "Elastigirl springs into action to save the day, while Mr. Incredible faces his greatest challenge yet – taking care of the problems of his three children.",
-          "poster_path": "/x1txcDXkcM65gl7w20PwYSxAYah.jpg",
-          "release_date": "2018-06-14",
-          "title": "Incredibles 2",
-          "vote_average": "7.7"
-        },
-        {
-          "id": "400155",
-          "original_language": "en",
-          "overview": "Dracula, Mavis, Johnny and the rest of the Drac Pack take a vacation on a luxury Monster Cruise Ship, where Dracula falls in love with the ship's captain, Ericka, who's secretly a descendant of Abraham Van Helsing, the notorious monster slayer.",
-          "poster_path": "/gjAFM4xhA5vyLxxKMz38ujlUfDL.jpg",
-          "release_date": "2018-07-12",
-          "title": "Hotel Transylvania 3: Summer Vacation",
-          "vote_average": "7.5"
-        }
-      ]
+      "id": "400155",
+      "original_language": "en",
+      "overview": "Dracula, Mavis, Johnny and the rest of the Drac Pack take a vacation on a luxury Monster Cruise Ship, where Dracula falls in love with the ship's captain, Ericka, who's secretly a descendant of Abraham Van Helsing, the notorious monster slayer.",
+      "poster_path": "/gjAFM4xhA5vyLxxKMz38ujlUfDL.jpg",
+      "release_date": "2018-07-12",
+      "title": "Hotel Transylvania 3: Summer Vacation",
+      "vote_average": "7.5"
+    },
+    {
+      "id": "299536",
+      "original_language": "en",
+      "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+      "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+      "release_date": "2018-04-25",
+      "title": "Avengers: Infinity War",
+      "vote_average": "8.4"
+    },
+    {
+      "id": "284053",
+      "original_language": "en",
+      "overview": "Thor is on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the prophecy of destruction to his homeworld and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela.",
+      "poster_path": "/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg",
+      "release_date": "2017-10-25",
+      "title": "Thor: Ragnarok",
+      "vote_average": "7.5"
+    },
+    {
+      "id": "427641",
+      "original_language": "en",
+      "overview": "Primatologist Davis Okoye shares an unshakable bond with George, the extraordinarily intelligent, silverback gorilla who has been in his care since birth.  But a rogue genetic experiment gone awry mutates this gentle ape into a raging creature of enormous size.  To make matters worse, it’s soon discovered there are other similarly altered animals.  As these newly created alpha predators tear across North America, destroying everything in their path, Okoye teams with a discredited genetic engineer to secure an antidote, fighting his way through an ever-changing battlefield, not only to halt a global catastrophe but to save the fearsome creature that was once his friend.",
+      "poster_path": "/3gIO6mCd4Q4PF1tuwcyI3sjFrtI.jpg",
+      "release_date": "2018-04-12",
+      "title": "Rampage",
+      "vote_average": "6.1"
     }
-  ]
+  ],
+  "Comedy": [],
+  "Crime": [],
+  "Documentary": [],
+  "Drama": [],
+  "Family": [],
+  "Fantasy": [],
+  "History": [],
+  "Horror": [],
+  "Music": [],
+  "Mystery": [],
+  "Romance": [],
+  "ScienceFiction": [],
+  "TVMovie": [],
+  "Thriller": [],
+  "War": [],
+  "Western": []
 }
