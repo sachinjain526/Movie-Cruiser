@@ -1,6 +1,6 @@
 var jQuery = require('jquery');
-import { getFullMovieDetails, getMovieRecords, getUserCollection, saveDataTOJsonSever, getSearchedMovie } from './apiDataServices'
-import { createMovieDetail, createTopMoviesList, CreateUserCollection, addMovieToCollectionHtml } from './createListAndCollection'
+import { getFullMovieDetails, getMovieRecords, getUserCollection, saveDataTOJsonSever, getSearchedMovie, getAndDeleteMovieCollection } from './apiDataServices'
+import { createMovieDetail, createTopMoviesList, CreateUserCollection, addMovieToCollectionHtml, removeMovieFromUserColl } from './createListAndCollection'
 import { baseUrl } from './keysAndApiPath'
 // onload Event trigger
 let movieName = "";
@@ -22,10 +22,15 @@ function eventListener() {
 
     });
     jQuery(document).on("click", ".movieImage", function () {
-        const movieId = jQuery(this).parent().attr("id");
+        const movieId = jQuery(this).parent().attr("movieListId");
         getFullMovieDetails(movieId, showMovieDetailsPopup);
-
     });
+    jQuery(document).on("click", ".collectionMovieImage", function () {
+        const movieId = jQuery(this).parent().attr("movieListId");
+        const collectionName = jQuery(this).attr("collectionName")
+        getAndDeleteMovieCollection("GET", movieId, collectionName, showMovieDetailsPopup);
+    });
+
     jQuery("nav").on("click", "#movieSearchButton", function () {
         jQuery("#searchMoviesContainer").html("");
         movieName = jQuery("#movieSearchInput").val();
@@ -56,9 +61,20 @@ function eventListener() {
         jQuery(this).addClass("d-none");
 
     });
+    jQuery(document).on("click", "#removeTOCollectionBtn", function () {
+
+        const modalId = jQuery(this).parents(".modal").attr("id");
+        const movieId = modalId.split("-")[0];
+        const collectionName = jQuery(this).attr("collectionName")
+        getAndDeleteMovieCollection("DELETE", movieId, collectionName, deleteMovieFromCollection);
+        jQuery("#closeModal").trigger("click");
+    });
 
 }
 // call back and basic functions
+function deleteMovieFromCollection(deleteData) {
+    removeMovieFromUserColl(deleteData);
+}
 function showTopMovies(data) {
     createTopMoviesList("topMoviesContainer", data);
 }
@@ -76,7 +92,8 @@ function addCollection(data, collectionName) {
         poster_path: data.poster_path,
         release_date: data.release_date,
         title: data.title,
-        vote_average: data.vote_average
+        vote_average: data.vote_average,
+        "faviroiteFlag": true
     };
     saveDataTOJsonSever(collectionName, saveData, updateCollectionList)
 }

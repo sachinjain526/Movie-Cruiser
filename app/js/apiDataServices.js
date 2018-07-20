@@ -66,4 +66,17 @@ function getUserCollection(callback) {
             console.log(err);
         });
 }
-export { getMovieRecords, getFullMovieDetails, saveDataTOJsonSever, getUserCollection, getSearchedMovie };
+function getAndDeleteMovieCollection(method, movieId, collectionName, callback) {
+    jQuery.ajax({
+        url: baseUrl + collectionName + "/" + movieId,
+        method: method,
+        dataType: "json"
+    }).done(function (ResData) {
+        ResData["collectionName"] = collectionName;
+        ResData["movieId"] = movieId;
+        callback(ResData);
+    }).fail(function (jqXHR, textStatus) {
+        console.log("Request failed: " + textStatus);
+    });
+}
+export { getMovieRecords, getFullMovieDetails, saveDataTOJsonSever, getUserCollection, getSearchedMovie, getAndDeleteMovieCollection };
