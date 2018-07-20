@@ -18,12 +18,12 @@ function eventListener() {
     });
     jQuery(document).on("click", ".collectionButton", function () {
         const movieId = jQuery(this).attr("movieId");
-        getFullMovieDetails(movieId, addTOCollection);
+        getFullMovieDetails(movieId, showMovieDetailWithEnabledCollPane);
 
     });
     jQuery(document).on("click", ".movieImage", function () {
         const movieId = jQuery(this).parent().attr("id");
-        getFullMovieDetails(movieId, showMovieDetails);
+        getFullMovieDetails(movieId, showMovieDetailsPopup);
 
     });
     jQuery("nav").on("click", "#movieSearchButton", function () {
@@ -45,11 +45,18 @@ function eventListener() {
             jQuery(this).remove();
         });
     });
-    jQuery(document).on("click", ".addMovieCollectionItem", function () {
-        const movieId = jQuery(this).parents("#collectionList").attr("movieid");
-        const collectionName = jQuery(this).attr("collectionname");
+    jQuery(document).on("click", "#collButton", function () {
+        const movieId = jQuery("#CollSelection").attr("movieId");
+        const collectionName = jQuery("#CollSelection").val();
         getFullMovieDetails(movieId, addCollection, collectionName);
+        jQuery("#closeModal").trigger("click");
     });
+    jQuery(document).on("click", "#addToCollectionBtn", function () {
+        jQuery("#addToCollectionSection").removeClass("d-none");
+        jQuery(this).addClass("d-none");
+
+    });
+
 }
 // call back and basic functions
 function showTopMovies(data) {
@@ -58,8 +65,8 @@ function showTopMovies(data) {
 function showSearchedMovies(data) {
     createTopMoviesList("searchMoviesContainer", data);
 }
-function addTOCollection(data) {
-    createMovieDetail("movieDetail", false, data);
+function showMovieDetailWithEnabledCollPane(data) {
+    createMovieDetail(data, true, false);//movieDetailData, openPopup:true/returnData:false, EnableCollectionPane
 }
 function addCollection(data, collectionName) {
     var saveData = {
@@ -74,12 +81,19 @@ function addCollection(data, collectionName) {
     saveDataTOJsonSever(collectionName, saveData, updateCollectionList)
 }
 function updateCollectionList(data, collectionName) {
-    addMovieToCollectionHtml(collectionName, data);
+    if (jQuery("#" + collectionName + "-Container").length) {
+        addMovieToCollectionHtml(collectionName, data);
+    }
+    else {
+        const resData = { "id": collectionName, "data": [data] }
+        CreateUserCollection("userCollectionContainer", [resData], true);
+    }
+
 }
 function constructMovieCollection(data) {
     CreateUserCollection("userCollectionContainer", data);
 }
-function showMovieDetails(data) {
-    createMovieDetail("movieDetail", true, data);
+function showMovieDetailsPopup(data) {
+    createMovieDetail(data, true, true);
 }
 export { eventListener, movieOnload };

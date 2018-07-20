@@ -20,100 +20,94 @@ function createTopMoviesList(containerId, movieData) {
     }
     jQuery("#" + containerId).append(showTopMoviesHtml);
 }
-function createMovieDetail(containerId, showList, movieDetailData) {
+function openModelPopup(data) {
+    jQuery("body").append(
+        `<div class="modal fade modalDetailContainer" id="${data.id}-popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-danger">
+                    <div class="modal-header">
+                        <span>
+                        ${data.modalHeader}
+                        </span>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body ">
+                        ${data.modalBody}
+                    </div>
+                </div>
+            </div>
+        </div>`);
+    jQuery("#" + data.id + "-popup").modal('show');
+}
+function createMovieDetail(movieDetailData, openPopup, EnableCollectionPane) {
     var collectionList = "";
-    if (!showList) {
+    if (!EnableCollectionPane) {
         jQuery.each(collectionType, function (index, value) {
-            collectionList += '<li class="nav-item px-3 rounded m-1 bg-dark addMovieCollectionItem" collectionname="' + value + '"><a class="nav-link active" href="#">' + value + '</a></li>';
+            collectionList += '<option value="' + value + '">' + value + '</option>';
         });
     }
-    jQuery("body").append(
-        `<div class="modal fade movieDetailContainer" id="${movieDetailData.id}-popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-           <div class="modal-content bg-danger">
-              <div class="modal-header">
-              <span>
-              <a href="/movie/363088-ant-man-and-the-wasp">
-                 <h2 class="d-inline-block">${movieDetailData.title}</h2>
-              </a>
-              <span class="release_date font-weight-bold">${movieDetailData.release_date.split("-")[0]}</span>
-           </span>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModal">
-                 <span aria-hidden="true">&times;</span>
-                 </button>
-              </div>
-              <div class="modal-body d-flex">
-              <div class="col-3 poster-wraper">
-                 <img src="${posterPath + movieDetailData.poster_path}" alt="${movieDetailData.title}" class="img-thumbnail rounded">
-              </div>
-              <div class="col-9">
-                 <ul class="nav text-center small">
-                    <li class="chart mr-2">
-                       <div class="d-inline-block text-dark font-weight-bold">
-                          <cite id="movieRating">${movieDetailData.vote_average}</cite>
-                          <span class="fas fa-star"></span>
-                          <span class="d-block">User Score</span>
-                       </div>
-                    </li>
-                    <!--<li class="nav-item mr-2" title="Add to list" data-role="tooltip">
-                       <a class="nav-link" href="#">
-                       <span class="fas fa-align-justify"></span>
-                       </a>
-                    </li>
-                    <li class="nav-item mr-2" title="Mark as Favourite" data-role="tooltip">
-                       <a id="favourite" class="nav-link" href="#">
-                       <span class="fas fa-heart"></span>
-                       </a>
-                    </li>
-                    <li class="nav-item mr-2" title="Add to your collection" data-role="tooltip"  movieId="${movieDetailData.id}">
-                       <a id="watchlist" class="nav-link" href="#">
-                       <span class="fas fa-bookmark"></span>
-                       </a>
-                    </li>
-                    <li class="nav-item mr-2" title="Rate it!" data-role="tooltip">
-                       <a id="rate_it" class="nav-link" href="#">
-                       <span class="fas fa-star"></span>
-                       </a>
-                    </li>-->
-                    <li class="nav-item mr-2 ${showList ? "" : "d-none"}" title="Rate it!" data-role="tooltip">
-                       <a id="rate_it" class="nav-link" href="#">Add To Collection</a>
-                    </li>
-                    <li class="video nav-item ">
-                       <a class="nav-link play_trailer" href="#" data-id="8_rTIAOohas">
-                       <span>
-                       <i class="fas fa-play"></i>
-                       Play Trailer</span>
-                       </a>
-                    </li>
-                 </ul>
-                 <div class="mt-2">
-                    <h3  class="text-success font-weight-bold">Overview</h3>
-                    <div class="overview lead" id="movieOverview">
-                       <p class="text-white small">${movieDetailData.overview}"</p>
-                    </div>
-                    
-                 </div>
-                 </div>
-              </div>
-              <div id="addToCollectionSection" class="bg-white p-2 ${!showList ? "" : "d-none"}">
-                    <h4 class="text-dark bg-danger p-2 text-center">Click on collection name to add this movie</h4>
-                     <ul class="nav" id="collectionList" movieid="${movieDetailData.id}>
-                        ${collectionList}
-                    </ul>
-                 </div>
+    let modalHeader = `<a href="/movie/363088-ant-man-and-the-wasp">
+                    <h2 class="d-inline-block">${movieDetailData.title}</h2>
+                </a>
+                <span class="release_date font-weight-bold">${movieDetailData.release_date.split("-")[0]}</span>`
+    let modalBody = ` <div class="d-flex">
+    <div class="col-4 poster-wraper">
+        <img src="${posterPath + movieDetailData.poster_path}" alt="${movieDetailData.title}" class="img-thumbnail rounded">
+    </div>
+  <div class="col-8">
+     <ul class="nav text-center small">
+        <li class="chart mr-2">
+           <div class="d-inline-block text-dark font-weight-bold">
+              <cite id="movieRating">${movieDetailData.vote_average}</cite>
+              <span class="fas fa-star"></span>
+              <span class="d-block">User Score</span>
            </div>
-        </div>`);
-    jQuery("#" + movieDetailData.id + "-popup").modal('show');
+        </li>
+        <li class="nav-item mr-2 ${EnableCollectionPane ? "" : "d-none"}" title="Add To Collection" data-role="tooltip">
+           <a id="addToCollectionBtn" class="nav-link" href="#">Add To Collection</a>
+        </li>
+        <li class="video nav-item ">
+           <a class="nav-link play_trailer" href="#" data-id="8_rTIAOohas">
+           <span>
+           <i class="fas fa-play"></i>
+           Play Trailer</span>
+           </a>
+        </li>
+     </ul>
+     <div class="mt-2">
+        <h3  class="text-success font-weight-bold">Overview</h3>
+        <div class="overview lead" id="movieOverview">
+           <p class="text-white small">${movieDetailData.overview}"</p>
+
+           <div id="addToCollectionSection" class="text-center p-2 ${!EnableCollectionPane ? "" : "d-none"}">
+                <h5 class="text-dark p-2 ">Select collection name to add this movie</h5>
+                <div class="input-group mb-3">
+                    <select class="custom-select" id="CollSelection" movieId="${movieDetailData.id}">
+                         ${collectionList}
+                     </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary"  id="collButton">Add To Collection</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>`
+    if (openPopup) {
+        openModelPopup({ "id": movieDetailData.id, modalHeader, modalBody })
+    }
 }
-function CreateUserCollection(containerId, response) {
+function CreateUserCollection(containerId, response, appendFlag) {
     let userCollectionHtml = ""
     jQuery.each(response, function (ind, resData) {
         let containerId = resData.id;
         if (resData.data && resData.data.length) {
-            userCollectionHtml += `<div id="${containerId}-Container" class="col-2 p-1 carousel slide carousel-fade" data-ride="carousel">
+            userCollectionHtml += `<div class="col-2 p-1">
+            <div id="${containerId}-Container" class="text-center carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner">`
             jQuery.each(resData.data, function (index, value) {
-                userCollectionHtml += `<div class="carousel-item ${index ? "" : "active"}" id="${value.id}">
+                userCollectionHtml += `<div class="carousel-item ${index ? "" : "active"}" id="${value.id}-${containerId}">
                 <img src="${posterPath + value.poster_path}" alt="${value.original_title}" class="img-thumbnail rounded">
                 </div>`
             })
@@ -126,13 +120,21 @@ function CreateUserCollection(containerId, response) {
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
-        </div>`
+        </div>
+        <button class="btn btn-danger px-5 userColloctionBtn" type="button" id="user${containerId}Btn"> ${containerId}</button>
+        </div>
+        `
         }
     });
-    jQuery("#" + containerId).html(userCollectionHtml);
+    if (appendFlag) {
+        jQuery("#" + containerId).append(userCollectionHtml);
+    } else {
+        jQuery("#" + containerId).html(userCollectionHtml);
+    }
+
 }
 function addMovieToCollectionHtml(collectionName, value) {
-    jQuery("#" + collectionName).find("carousel-inner").prepend(
+    jQuery("#" + collectionName + "-Container").find(".carousel-inner").prepend(
         `<div class="carousel-item id="${value.id}">
         <img src="${posterPath + value.poster_path}" alt="${value.original_title}" class="img-thumbnail rounded">
     </div>`);
