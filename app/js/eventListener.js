@@ -10,6 +10,24 @@ function movieOnload() {
 }
 
 function eventListener() {
+    jQuery('#scrolltoRight').click(function (e) {
+        let pagenumber = parseInt(jQuery(this).attr("pagenumber"));
+        pagenumber = pagenumber + 1;
+        const sectionElem = jQuery('#topMoviesContainer');
+        const currentScroll = parseInt(sectionElem.scrollLeft());
+        sectionElem.animate({ scrollLeft: currentScroll + 800 }, 800);
+        const width = Math.ceil(sectionElem.outerWidth()),
+            scrollWidth = sectionElem.get(0).scrollWidth;
+        if (scrollWidth - currentScroll == width) {
+            getMovieRecords(pagenumber, showTopMovies);
+            jQuery(this).attr("pagenumber", pagenumber);
+        }
+    });
+    jQuery('#scrolltoLeft').click(function (e) {
+        const thisElem = jQuery('#topMoviesContainer');
+        const currentScroll = parseInt(thisElem.scrollLeft());
+        thisElem.animate({ scrollLeft: currentScroll - 800 }, 800);
+    });
     jQuery("#homePage").on("click", "#loadMovie", function () {
         let pagenumber = parseInt(jQuery(this).attr("pagenumber"));
         pagenumber = pagenumber + 1;

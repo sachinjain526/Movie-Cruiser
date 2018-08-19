@@ -5,16 +5,12 @@ function createTopMoviesList(containerId, movieData) {
     let showTopMoviesHtml = "";
     if (movieData.results) {
         movieData.results.map(movieRecod => {
-            showTopMoviesHtml += `<div class="col-2 p-1 movieContainer" id= ${movieRecod.id} movieListId="${movieRecod.id}">
-            <img src="${posterPath + movieRecod.poster_path}" alt="${movieRecod.original_title}" class="img-thumbnail rounded movieImage">
-           
-            <div class="buttom-panel text-center mt-1">
-            <button type="button" class="collectionButton btn btn-success" movieId="${movieRecod.id}">Add To Collection</button>
-            </div>
-            <div class="p-1 m-1 bg-primary text-white">
-                <span class="small">Released : ${movieRecod.release_date.split("-")[0]}</span>
-                <span class="small">Rating: ${movieRecod.vote_average}</span>
-            </div>
+            showTopMoviesHtml += `
+            <div class=" col-md-2 p-1 movieContainer" id= ${movieRecod.id} movieListId="${movieRecod.id}">
+                <img src="${posterPath + movieRecod.poster_path}" alt="${movieRecod.original_title}" class="img-thumbnail rounded movieImage">
+                <div class="buttom-panel text-center mt-1">
+                    <button type="button" class="collectionButton btn btn-success" movieId="${movieRecod.id}">Add To Collection</button>
+                </div>
             </div>`
         });
     }
@@ -104,7 +100,7 @@ function CreateUserCollection(containerId, response, appendFlag) {
     jQuery.each(response, function (ind, resData) {
         let containerId = resData.id;
         if (resData.data && resData.data.length) {
-            userCollectionHtml += `<div class="col-2 p-1">
+            userCollectionHtml += `<div class="col-md-2 p-1">
             <div id="${containerId}-Container" class="text-center carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner">`
             jQuery.each(resData.data, function (index, value) {
