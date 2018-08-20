@@ -8,25 +8,43 @@ function movieOnload() {
     getMovieRecords(1, showTopMovies);
     getUserCollection(constructMovieCollection);
 }
-
-function eventListener() {
-    jQuery('#scrolltoRight').click(function (e) {
-        let pagenumber = parseInt(jQuery(this).attr("pagenumber"));
-        pagenumber = pagenumber + 1;
-        const sectionElem = jQuery('#topMoviesContainer');
-        const currentScroll = parseInt(sectionElem.scrollLeft());
+function scrollHorizontally(containerId, moveTO, nextCall, serached) {
+    const sectionElem = jQuery(containerId),
+        currentScroll = parseInt(sectionElem.scrollLeft()),
+        width = Math.floor(sectionElem.outerWidth()),
+        scrollWidth = sectionElem.get(0).scrollWidth;
+    if (moveTO === "next") {
         sectionElem.animate({ scrollLeft: currentScroll + 800 }, 800);
-        const width = Math.ceil(sectionElem.outerWidth()),
-            scrollWidth = sectionElem.get(0).scrollWidth;
+    }
+    else {
+        sectionElem.animate({ scrollLeft: currentScroll - 800 }, 800);
+    }
+    if (nextCall) {
         if (scrollWidth - currentScroll == width) {
-            getMovieRecords(pagenumber, showTopMovies);
-            jQuery(this).attr("pagenumber", pagenumber);
+            const pagenumber = parseInt(sectionElem.attr("pagenumber")) + 1;
+            if (serached) {
+                const movieName = sectionElem.attr('moveName');
+                getSearchedMovie(movieName, pagenumber, showSearchedMovies);
+            } else {
+                getMovieRecords(pagenumber, showTopMovies);
+            }
+
+            sectionElem.attr("pagenumber", pagenumber);
         }
+    }
+}
+function eventListener() {
+    jQuery('#topMoviesScrolltoRight').click(function (e) {
+        scrollHorizontally('#topMoviesContainer', 'next', true);
     });
-    jQuery('#scrolltoLeft').click(function (e) {
-        const thisElem = jQuery('#topMoviesContainer');
-        const currentScroll = parseInt(thisElem.scrollLeft());
-        thisElem.animate({ scrollLeft: currentScroll - 800 }, 800);
+    jQuery('#topMoviesScrolltoLeft').click(function (e) {
+        scrollHorizontally('#topMoviesContainer', 'prev');
+    });
+    jQuery('#searchedMoviesScrolltoRight').click(function (e) {
+        scrollHorizontally('#searchedMoviesContainer', 'next', true, true);
+    });
+    jQuery('#searchedMoviesScrolltoLeft').click(function (e) {
+        scrollHorizontally('#searchedMoviesContainer', 'prev');
     });
     jQuery("#homePage").on("click", "#loadMovie", function () {
         let pagenumber = parseInt(jQuery(this).attr("pagenumber"));
@@ -50,17 +68,11 @@ function eventListener() {
     });
 
     jQuery("nav").on("click", "#movieSearchButton", function () {
-        jQuery("#searchMoviesContainer").html("");
-        movieName = jQuery("#movieSearchInput").val();
+        const movieName = jQuery("#movieSearchInput").val();
+        jQuery("#searchedMoviesContainer").html("").attr('moveName', movieName);
         getSearchedMovie(movieName, 1, showSearchedMovies);
         jQuery("#searchedMovies").removeClass("d-none");
 
-    });
-    jQuery("#homePage").on("click", "#loadSearchedMovie", function () {
-        let pagenumber = parseInt(jQuery(this).attr("pagenumber"));
-        pagenumber = pagenumber + 1;
-        getSearchedMovie(movieName, pagenumber, showSearchedMovies);
-        jQuery(this).attr("pagenumber", pagenumber);
     });
     jQuery(document).on("click", "#closeModal", function () {
         const modalId = jQuery(this).parents(".modal").attr("id");
@@ -97,7 +109,7 @@ function showTopMovies(data) {
     createTopMoviesList("topMoviesContainer", data);
 }
 function showSearchedMovies(data) {
-    createTopMoviesList("searchMoviesContainer", data);
+    createTopMoviesList("searchedMoviesContainer", data);
 }
 function showMovieDetailWithEnabledCollPane(data) {
     createMovieDetail(data, true, false);//movieDetailData, openPopup:true/returnData:false, EnableCollectionPane

@@ -68,10 +68,10 @@ body{
         @include flexDirection(column !important);
     }
 }
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
-}
+/*::-webkit-scrollbar {
+    width: 0px; 
+    background: transparent; 
+} optional: just make scrollbar invisible */
 .section-arrow{
     @include flexScreen(3%);
 }

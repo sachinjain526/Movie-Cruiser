@@ -28,17 +28,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">My Collection</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Tv Shows</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">People</a>
-                </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search Movie.." aria-label="Search" id="movieSearchInput"
                     required>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="movieSearchButton">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="movieSearchButton">Search</button>
             </form>
         </div>
     </nav>
@@ -46,32 +40,39 @@
         <div class="main-pages" id="homePage">
             <section id="searchedMovies" class="contianer-fluid text-center d-none">
                 <h1 class="  w-25 mx-auto my-2 section-heading text-dark font-weight-bold">Search Movie:-</h1>
-                <div class="m-auto section-content">
-                    <div id="searchMoviesContainer" class="row m-1">
+                <div class="m-auto section-content d-flex align-items-center">
+                    <div class="col-md-1 section-arrow">
+                        <button id="searchedMoviesScrolltoLeft" type="button" class="p-1 btn  btn-outline-dark">
+                            <i class="fa fa-angle-double-left"></i>
+                        </button>
+                    </div>
+                    <div id="searchedMoviesContainer" class="d-flex" style="overflow-x: auto" pageNumber="1" moveName="">
 
                     </div>
-                    <button id="loadSearchedMovie" type="button" class="w-25 p-1 btn btn-primary" pageNumber="1">Load More...</button>
+                    <div class="col-md-1 section-arrow">
+                        <button id="searchedMoviesScrolltoRight" type="button" class="p-1 btn btn-outline-dark">
+                            <i class="fa fa-angle-double-right"></i>
+                        </button>
+                    </div>
                 </div>
             </section>
             <section id="topMovies" class="contianer-fluid ">
                 <h1 class="text-center w-25 mx-auto my-2 section-heading text-dark font-weight-bold">Top Movies</h1>
                 <div class="m-auto section-content d-flex align-items-center">
                     <div class="col-md-1 section-arrow">
-                        <button id="scrolltoLeft" type="button" class="p-1 btn  btn-outline-dark">
+                        <button id="topMoviesScrolltoLeft" type="button" class="p-1 btn  btn-outline-dark">
                             <i class="fa fa-angle-double-left"></i>
                         </button>
                     </div>
-                    <div id="topMoviesContainer" class="d-flex" style="overflow-x: auto">
+                    <div id="topMoviesContainer" class="d-flex" style="overflow-x: auto" pageNumber="1">
 
                     </div>
                     <div class="col-md-1 section-arrow">
-                        <button id="scrolltoRight" type="button" class="p-1 btn btn-outline-dark" pageNumber="1">
+                        <button id="topMoviesScrolltoRight" type="button" class="p-1 btn btn-outline-dark">
                             <i class="fa fa-angle-double-right"></i>
                         </button>
                     </div>
                 </div>
-                <button id="loadMovie" type="button" class="w-25 p-1 btn btn-primary" pageNumber="1">Load More...</button>
-
             </section>
             <section id="userCollection" class="contianer-fluid">
                 <h1 class="text-center  w-25 mx-auto my-2 section-heading text-dark font-weight-bold">User Collection</h1>

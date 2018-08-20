@@ -132,8 +132,8 @@ function CreateUserCollection(containerId, response, appendFlag) {
 }
 function addMovieToCollectionHtml(collectionName, value) {
     jQuery("#" + collectionName + "-Container").find(".carousel-inner").prepend(
-        ` <div class="carousel-item" id="${value.id}-${containerId}" movieListId="${value.id}">
-                <img src="${posterPath + value.poster_path}" alt="${value.original_title}" class="img-thumbnail rounded collectionMovieImage" collectionName="${containerId}">
+        ` <div class="carousel-item" id="${value.id}-${collectionName}" movieListId="${value.id}">
+                <img src="${posterPath + value.poster_path}" alt="${value.original_title}" class="img-thumbnail rounded collectionMovieImage" collectionName="${collectionName}">
                 </div>`
     );
 }

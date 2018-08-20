@@ -37,11 +37,33 @@
   "Comedy": [],
   "Crime": [],
   "Documentary": [],
-  "Drama": [],
+  "Drama": [
+    {
+      "id": "441829",
+      "original_language": "en",
+      "overview": "A continuation of the documentary spoof of what Thor and his roommate Darryl were up to during the events of \"Captain America: Civil War\". While Cap and Iron Man duke it out, Thor tries to pay Darryl his rent in Asgardian coins.",
+      "poster_path": "/hBByhGBRAuaDi5ZIAKrEYmPkUXT.jpg",
+      "release_date": "2017-02-14",
+      "title": "Team Thor: Part 2",
+      "vote_average": "7.3",
+      "faviroiteFlag": "true"
+    }
+  ],
   "Family": [],
   "Fantasy": [],
   "History": [],
-  "Horror": [],
+  "Horror": [
+    {
+      "id": "493006",
+      "original_language": "ja",
+      "overview": "There is a sudden explosion at Tokyo Summit's giant Edge of Ocean facility. The shadow of Tōru Amuro, who works for the National Police Agency Security Bureau as Zero, appears at the site. In addition, the \"triple-face\" character is known as Rei Furuya as a detective and Kogorō Mōri's apprentice, and he is also known as Bourbon as a Black Organization member. Kogorō is arrested as a suspect in the case of the explosion. Conan conducts an investigation to prove Kogorō's innocence, but Amuro gets in his way.",
+      "poster_path": "/skJl9GXEXtKoPNtsgslS2swO3zp.jpg",
+      "release_date": "2018-04-13",
+      "title": "Detective Conan: Zero the Enforcer",
+      "vote_average": "4.5",
+      "faviroiteFlag": "true"
+    }
+  ],
   "Music": [],
   "Mystery": [],
   "Romance": [],
@@ -68,7 +90,59 @@
     }
   ],
   "TVMovie": [],
-  "Thriller": [],
-  "War": [],
+  "Thriller": [
+    {
+      "id": "353081",
+      "original_language": "en",
+      "overview": "When an IMF mission ends badly, the world is faced with dire consequences. As Ethan Hunt takes it upon himself to fulfil his original briefing, the CIA begin to question his loyalty and his motives. The IMF team find themselves in a race against time, hunted by assassins while trying to prevent a global catastrophe.",
+      "poster_path": "/AkJQpZp9WoNdj7pLYSj1L0RcMMN.jpg",
+      "release_date": "2018-07-25",
+      "title": "Mission: Impossible - Fallout",
+      "vote_average": "7.5",
+      "faviroiteFlag": "true"
+    },
+    {
+      "id": "455980",
+      "original_language": "en",
+      "overview": "For one month every year, five highly competitive friends hit the ground running in a no-holds-barred game of tag they’ve been playing since the first grade. This year, the game coincides with the wedding of their only undefeated player, which should finally make him an easy target. But he knows they’re coming...and he’s ready.",
+      "poster_path": "/eXXpuW2xaq5Aen9N5prFlARVIvr.jpg",
+      "release_date": "2018-06-14",
+      "title": "Tag",
+      "vote_average": "7",
+      "faviroiteFlag": "true"
+    }
+  ],
+  "War": [
+    {
+      "id": "284054",
+      "original_language": "en",
+      "overview": "King T'Challa returns home from America to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne by factions within his own country as well as without. Using powers reserved to Wakandan kings, T'Challa assumes the Black Panther mantel to join with girlfriend Nakia, the queen-mother, his princess-kid sister, members of the Dora Milaje (the Wakandan 'special forces') and an American secret agent, to prevent Wakanda from being dragged into a world war.",
+      "poster_path": "/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+      "release_date": "2018-02-13",
+      "title": "Black Panther",
+      "vote_average": "7.3",
+      "faviroiteFlag": "true"
+    },
+    {
+      "id": "353081",
+      "original_language": "en",
+      "overview": "When an IMF mission ends badly, the world is faced with dire consequences. As Ethan Hunt takes it upon himself to fulfil his original briefing, the CIA begin to question his loyalty and his motives. The IMF team find themselves in a race against time, hunted by assassins while trying to prevent a global catastrophe.",
+      "poster_path": "/AkJQpZp9WoNdj7pLYSj1L0RcMMN.jpg",
+      "release_date": "2018-07-25",
+      "title": "Mission: Impossible - Fallout",
+      "vote_average": "7.5",
+      "faviroiteFlag": "true"
+    },
+    {
+      "id": "383498",
+      "original_language": "en",
+      "overview": "Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.",
+      "poster_path": "/to0spRl1CMDvyUbOnbb4fTk3VAd.jpg",
+      "release_date": "2018-05-15",
+      "title": "Deadpool 2",
+      "vote_average": "7.6",
+      "faviroiteFlag": "true"
+    }
+  ],
   "Western": []
 }
